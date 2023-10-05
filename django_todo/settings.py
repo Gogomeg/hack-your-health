@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-uir^gn6uua1@(&+j(hpnuv4m55yp*1seul8cx20zit=0#btl35
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-gogomeg-hack-your-health-ksvx28cpnd.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['hack-your-health-536c1472c698.herokuapp.com']
 
 
 # Application definition
