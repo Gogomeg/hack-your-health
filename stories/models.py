@@ -6,9 +6,11 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
 
+
 class Item(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False)
     done = models.BooleanField(null=False, blank=False, default=False)
+
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
