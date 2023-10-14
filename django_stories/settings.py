@@ -34,7 +34,7 @@ DEBUG = development
 
 if development:
     ALLOWED_HOSTS = [
-        '8000-gogomeg-hack-your-health-ksvx28cpnd.us2.codeanyapp.com']
+        '8000-gogomeg-hack-your-health-t3dde7z831.us2.codeanyapp.com']
 else:
     ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
