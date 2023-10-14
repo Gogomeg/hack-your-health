@@ -5,9 +5,9 @@ from .forms import ItemForm
 
 
 def get_stories_list(request):
-    items = Item.objects.all()
+    stories = Item.objects.all()
     context = {
-        'items': items
+        'stories': stories
     }
     return render(request, 'stories/stories_list.html', context)
 
@@ -26,27 +26,27 @@ def add_story(request):
 
 
 def edit_story(request, item_id):
-    item = get_object_or_404(Item, id=item_id)
+    story = get_object_or_404(Item, id=story_id)
     if request.method == 'POST':
-        form = ItemForm(request.POST, instance=item)
+        form = ItemForm(request.POST, instance=story)
         if form.is_valid():
             form.save()
             return redirect('get_stories_list')
-    form = ItemForm(instance=item)
+    form = ItemForm(instance=story)
     context = {
         'form': form
     }
     return render(request, 'stories/edit_story.html', context)
 
 
-def toggle_item(request, item_id):
-    item = get_object_or_404(Item, id=item_id)
-    item.done = not item.done
-    item.save()
+def toggle_item(request, story_id):
+    story = get_object_or_404(Item, id=story_id)
+    story.done = not story.done
+    story.save()
     return redirect('get_stories_list')
 
 
-def delete_item(request, item_id):
-    item = get_object_or_404(Item, id=item_id)
-    item.delete()
+def delete_item(request, story_id):
+    story = get_object_or_404(Item, id=story_id)
+    story.delete()
     return redirect('get_stories_list')

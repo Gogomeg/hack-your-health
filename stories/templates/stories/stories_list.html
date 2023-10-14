@@ -10,25 +10,25 @@
   <body>
     <h1>Pending stories:</h1>
     <table>
-      {% for item in items %}
+      {% for story in stories %}
       <tr>
-        {% if item.done %}
-        <td><strike>{{ item.name }}</strike></td>
+        {% if story.done %}
+        <td><strike>{{ story.name }}</strike></td>
         {% else %}
-        <td>{{ item.name }}</td>
+        <td>{{ story.name }}</td>
         {% endif %}
         <td>
-          <a href="/toggle/{{ item.id }}">
+          <a href="/toggle/{{ story.id }}">
             <button>Toggle</button>
           </a>
         </td>
         <td>
-          <a href="/edit/{{ item.id }}">
+          <a href="/edit/{{ story.id }}">
             <button>Edit</button>
           </a>
         </td>
         <td>
-          <a href="/delete/{{ item.id }}">
+          <a href="/delete/{{ story.id }}">
             <button>Delete</button>
           </a>
         </td>
