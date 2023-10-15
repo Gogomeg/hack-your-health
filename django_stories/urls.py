@@ -18,11 +18,11 @@ from django.urls import path, include
 from stories import views
 
 urlpatterns = [
+    path('toggle/<story_id>', views.toggle_item, name='toggle'),
+    path('delete/<story_id>', views.delete_item, name='delete'),
     path('admin/', admin.site.urls),
     path('', views.get_stories_list, name='get_stories_list'),
     path('add', views.add_story, name='add'),
     path('edit/<story_id>', views.edit_story, name='edit'),
-    path('toggle/<story_id>', views.toggle_item, name='toggle'),
-    path('delete/<story_id>', views.delete_item, name='delete'),
     path('summernote/', include('django_summernote.urls')),
 ]

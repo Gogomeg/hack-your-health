@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ItemForm
 from .models import Item
+
 # Create your views here.
 
 
 def get_stories_list(request):
-    stories = Item.objects.all()
+    items = Item.objects.all()
     context = {
-        'stories': stories
+        'items': items
     }
     return render(request, 'stories/stories_list.html', context)
 
@@ -32,21 +33,21 @@ def edit_story(request, item_id):
         if form.is_valid():
             form.save()
             return redirect('get_stories_list')
-    form = ItemForm(instance=story)
+    form = ItemForm(instance=item)
     context = {
         'form': form
     }
     return render(request, 'stories/edit_story.html', context)
 
 
-def toggle_item(request, story_id):
-    story = get_object_or_404(Item, id=story_id)
-    story.done = not story.done
-    story.save()
+def toggle_item(request, item_id):
+    item = get_object_or_404(Item, id=item_id)
+    item.done = not item.done
+    item.save()
     return redirect('get_stories_list')
 
 
-def delete_item(request, story_id):
-    story = get_object_or_404(Item, id=story_id)
-    story.delete()
+def delete_item(request, item_id):
+    item = get_object_or_404(Item, id=item_id)
+    item.delete()
     return redirect('get_stories_list')
