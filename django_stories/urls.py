@@ -20,4 +20,9 @@ from stories import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
+    path('toggle/<story_id>', views.toggle_story, name='toggle'),
+    path('delete/<story_id>', views.delete_story, name='delete'),
+    path('', views.get_stories_list, name='get_stories_list'),
+    path('add', views.add_story, name='add'),
+    path('edit/<story_id>', views.edit_story, name='edit'),
 ]
